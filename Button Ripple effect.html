@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Ripple effect</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            background-color:azure;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .btn{
+            background-color: pink;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+            text-decoration: none;
+            color: black;
+            position: relative;
+            overflow: hidden;
+         }
+         .btn span{
+          position: relative;
+          z-index: 1;
+         }
+         .btn::before{
+            content: "";
+            position: absolute;
+            background-color: orangered;
+            width: 0;
+            height: 0;
+            left: var(--xposition);
+            top: var(--yposition);
+            transform: translate(-50%, -50%);
+            border-radius:50% ;
+            transition:width 0.5s  ,height 0.5s;
+         }
+         .btn:hover::before{
+            width: 300px;
+            height: 300px;
+
+         }
+    </style>
+</head>
+<body>
+    <a href="" class="btn"><span>Button</span></a>
+   <script>
+    const btn=document.querySelector(".btn");
+    btn.addEventListener("mouseover",(event)=>{
+    const x=(event.pageX-btn.offsetLeft);
+    const y=(event.pageY-btn.offsetTop);
+    btn.style.setProperty("--xposition", x + "px");
+    btn.style.setProperty("--yposition", y + "px");
+    })
+   </script> 
+</body>
+</html>
