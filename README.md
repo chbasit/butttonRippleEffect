@@ -15,5 +15,5 @@ A button with a **ripple effect** using CSS and JavaScript. The effect creates a
 ## Installation & Setup  
 1. **Download or Clone the Repository**  
    ```sh
-   git clone https://github.com/your-repo/buttonRippleEffect.git
+   git clone https://github.com/chbasit/buttonRippleEffect.git
    cd buttonRippleEffect
